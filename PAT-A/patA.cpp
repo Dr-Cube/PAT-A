@@ -1,3 +1,79 @@
+//1007
+#include<stdio.h>
+#include<iostream>
+#include<algorithm>
+
+using namespace std;
+int max(int a, int b)
+{
+	return a > b ? a : b;
+}
+int main()
+{
+	int K;
+	int maxSS[10005];
+	int maxSSb[10005];
+	int maxS = -1;
+	int temp = 0, endEle, beginEle;
+	int Nk[10005];
+	cin >> K;
+	for (int i = 0; i < K; i++)
+	{
+		cin >> temp;
+		Nk[i] = temp;
+		//cout<<Nk[i];
+	}
+	//cout<<Nk[4];
+	for (int i = 0; i < K; i++)
+	{
+		if (i == 0)
+		{
+			maxSS[i] = Nk[i];
+			//beginArray[i] = Nk[i];
+			//beginEle = Nk[i];
+			endEle = i;
+		}
+		else
+		{
+			maxSS[i] = max(Nk[i], maxSS[i - 1] + Nk[i]);
+			//if (maxSS[i] == Nk[i]) beginArray[i] = i;
+		}
+	}
+	for (int i = 0; i < K; i++)
+	{
+
+		if (maxSS[i] > maxS)
+		{
+			maxS = maxSS[i];
+			//cout << i << endl;
+			endEle = i;
+			//if (beginArray[i] <= endEle)
+			//{
+			//	beginEle = beginArray[i];
+			//}
+		}
+
+	}
+	//maxS = -1;
+	for (int i = endEle; i >= 0; i--)
+	{
+		if (i==endEle)
+		{
+			maxSS[i] = Nk[i];
+			beginEle = i;
+		}
+		maxSS[i] = max(Nk[i], maxSS[i + 1] + Nk[i]);
+		if(maxSS[i]>maxS)
+		{
+			//maxS = maxSSb[i];
+			beginEle = i;
+		}
+	}
+	cout << maxS << ' ' << Nk[beginEle] << ' ' << Nk[endEle];
+	system("pause");
+	return 0;
+}
+
 //1001
 //#include<stdio.h>
 //#include<iostream>

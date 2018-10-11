@@ -1,3 +1,4 @@
 ﻿  patA.cpp
+d:\programs\pat\pat-a\pat-a\pata.cpp(15): warning C4101: “maxSSb”: 未引用的局部变量
   PAT-A.vcxproj -> D:\programs\PAT\PAT-A\Debug\PAT-A.exe
   PAT-A.vcxproj -> D:\programs\PAT\PAT-A\Debug\PAT-A.pdb (Partial PDB)
